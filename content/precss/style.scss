@@ -55,6 +55,102 @@ header {
         @include row-flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+
+        .menuToggle {
+            padding: 22px 60px;
+            display: none;
+            color: rgba(255,255,255,.9);
+            font-family: 'Gotham Medium';
+            font-size: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+            cursor: pointer;
+            background: linear-gradient(to right, #000000, #11749e);
+            overflow: hidden;
+            @include xs-block {
+                display: block;
+                position: relative;
+            }
+
+            span:nth-child(1) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, #051e29, #11749e);
+                animation: animate1 2s linear infinite;
+            }
+
+            @keyframes animate1 {
+                0% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+            
+            span:nth-child(2) {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(to bottom, #051e29, #11749e);
+                animation: animate2 2s linear infinite;
+            }
+
+            @keyframes animate2 {
+                0% {
+                    transform: translateY(-100%);
+                }
+                100% {
+                    transform: translateY(100%);
+                }
+            }
+
+            span:nth-child(3) {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to left, #051e29, #11749e);
+                animation: animate3 2s linear infinite;
+            }
+
+            @keyframes animate3 {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            span:nth-child(4) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(to top, #051e29, #11749e);
+                animation: animate4 2s linear infinite;
+            }
+        }
+
+        @keyframes animate4 {
+            100% {
+                transform: translateY(-100%);
+            }
+            0% {
+                transform: translateY(100%);
+            }
+        }
 
         ul {
             @include row-flex;
@@ -62,19 +158,24 @@ header {
             @include aaa(margin, 0 auto);
 
             @include xs-block {
-                display: block;
+                display: none;
+                position: absolute;
+                top: 101%;
                 text-align: center;
+                background: linear-gradient(to right, #000000, #11749e);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
             }
 
-            align-items: center;
+            align-items: center;            
 
             li {
                 @include sm(margin, 35px 35px 0 0);
                 @include nav(margin, 35px 25px 0 0);
                 @include nav2(margin, 35px 15px 0 0);
-
+                
+                
                 @include xs-block {
-                    margin: 35px auto 0;
+                    margin: 0 auto;
                     padding: 17.5px 150px 17.5px;
                     border-radius: 0;
                 }
@@ -87,14 +188,14 @@ header {
                 font-weight: 400;
                 margin: 35px 50px 0 0;
                 padding-bottom: 35px;
-                border-bottom: 6px solid rgba(0, 0, 0, 0);
+                border-bottom: 2px solid rgba(0, 0, 0, 0);
                 border-radius: 5%;
                 text-align: center;
 
                 &:hover {
                     cursor: pointer;
                     background-color: rgba(0, 0, 0, 0.5);
-                    border-bottom: 6px solid #05adf5;
+                    border-bottom: 2px solid #05adf5;
                     transition: 0.5s;
                 }
             }
@@ -103,6 +204,7 @@ header {
         .logo {
             margin-top: 20px;
             flex: 1 1 200px;
+            @include xs(flex, 1 1 500px);
             text-align: center;
         }
 
@@ -115,7 +217,7 @@ header {
         }
 
         .active {
-            border-bottom: 6px solid #11749e;
+            border-bottom: 2px solid #11749e;
         }
 
 
@@ -230,7 +332,7 @@ header {
             }
 
             @include xs-block {
-                letter-spacing: 5px;
+                letter-spacing: 2px;
                 margin-left: 10px;
             }
 
