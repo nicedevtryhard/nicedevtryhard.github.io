@@ -8,4 +8,10 @@ $(() => {
 
       });
   });
+	$(window).on('resize', () => {
+		if ($(window).width() > 559) {
+			console.log('559');
+			$('.menu').removeAttr('style');
+		}
+	});
 });
